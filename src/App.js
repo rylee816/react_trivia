@@ -132,10 +132,26 @@ function resetGame(){
   getData()
 }
 
+function setDifficultyColor(difficulty){
+  switch(difficulty){
+    case "easy": 
+     return {background: "lime"}
+
+    case "medium":
+     return {background: "blue"}
+     
+    case "hard":
+      return {background: "red"}
+    
+    default:
+      return {background: "purple"}
+  }
+}
+
   return gameStarted ? (
     <div className="App">
     <h1>Good Luck and Have Fun!</h1>
-    <h2> Difficulty: {options}</h2>
+    <h2> Difficulty: <span style={setDifficultyColor(options)}><em>{options}</em></span></h2>
     {questions.map((question, index) => {
       return <QuestionCard
        key={index}
