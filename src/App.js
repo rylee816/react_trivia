@@ -41,9 +41,10 @@ function decodeHtml(str){
         '&eacute;': "é",
         '&rsquo;': "'",
         '&uuml;': 'ü',
-        '&pi;': '	π'
+        '&pi;': '	π',
+        '&Prime;': '′'
     };
-    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;|&eacute;|&rsquo;|&uuml;|&pi;/g, (m) => map[m]);
+    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;|&eacute;|&rsquo;|&uuml;|&pi;|&Prime;/g, (m) => map[m]);
 }
 console.log(options)
 
