@@ -4,7 +4,7 @@ function QuestionCard(props) {
 console.log(props)
 
   return (
-    <div>
+    <div className='QuestionCard'>
         <h2>{props.question}</h2>
         {props.answers.map((answer, index) => (
             <Answer 

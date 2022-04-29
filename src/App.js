@@ -10,11 +10,11 @@ const [numCorrect, setNumCorrect] = useState(0)
 const [gameStarted, setGameStarted] = useState(false)
 const [options, setOptions] = useState(null)
 
-
+// Create a function to randomize the answers array
 function setRandom(array) {
   let currentIndex = array.length,  randomIndex;
 
-  // While there remain elements to shuffle.
+  // Shuffle remaining elements as long as current index > 0
   while (currentIndex !== 0) {
 
     // Pick a remaining element.
@@ -29,6 +29,7 @@ function setRandom(array) {
   return array;
 }
 
+// Create function to decode the html (some edge cases missing)
 function decodeHtml(str){
     var map =
     {
@@ -47,12 +48,12 @@ function decodeHtml(str){
 console.log(options)
 
 async function getData(){
-  let url = !options || options === "mixed" ? "https://opentdb.com/api.php?amount=10" : `https://opentdb.com/api.php?amount=10&difficulty=${options}`;
+  //Make api call with "options" variable to set difficulty
+  let url = !options || options === "mixed" ? "https://opentdb.com/api.php?amount=5" : `https://opentdb.com/api.php?amount=5&difficulty=${options}`;
   let res =  await fetch(url);
   let {results} = await res.json();
 
-  console.log(results)
-
+  //return an object with the main question and an array of 4 randomized answers and set it to state
    setQuestions(results.map(question => {
     const answers = [
       {
@@ -70,14 +71,16 @@ async function getData(){
   }))
 }
 
+// Fetch initial data and synch it with the difficulty level the user chooses
 useEffect(() => {
   getData()
 }, [options])
 
 
 function setChosen(questionIndex, answerIndex) {
-  // If I'm checking the results I can't select answers anymore
+  // Ensure no answers can be selected after answers are checked
    if(!finalAnswers)
+    // Loop through questions and toggle which answer was chosen
     setQuestions(prev =>
       prev.map((question, index) => {
         if (index === questionIndex) {
@@ -94,8 +97,10 @@ function setChosen(questionIndex, answerIndex) {
 
 
 function checkAnswers(){
+  //Set the game to be over when checking final answers
   setFinalAnswers(true)
   let result = 0;
+  //Loop through questions and tally amount correct
   questions.forEach(question => {
     question.answers.forEach(answer => {
       if(answer.selected && answer.correct){
@@ -104,9 +109,8 @@ function checkAnswers(){
     })
   })
   setNumCorrect(result)
-
-  // return numCorrect
 }
+
 
 function setDifficulty(value){
   setOptions(prev => {

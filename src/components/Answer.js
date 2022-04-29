@@ -7,25 +7,33 @@ function Answer(props) {
       let styles;
       if(props.chosen && !props.gameOver){
         styles = {
-          background:"lime",
-          boxShadow: "0px 5px 10px grey"
+          background:"navy",
+          boxShadow: "0px 5px 10px grey",
+          border: "1px solid transparent",
+          color: "white",
         }
       }
       if(props.gameOver && props.chosen && !props.correct){
         styles = {
-          background: "red"
+          background: "red",
+          border: "1px solid transparent",
+          color: "white"
         }
       }
       if(props.gameOver && !props.chosen && props.correct){
         styles = {
           background: "lime",
-          boxShadow: "0px 5px 10px grey"
+          boxShadow: "0px 5px 10px grey",
+          border: "none",
+          color: "white"
         }
       }
       if(props.gameOver && props.chosen && props.correct){
         styles = {
           background: "lime",
-          boxShadow: "0px 5px 10px grey"
+          boxShadow: "0px 5px 10px grey",
+          border: "1px solid transparent",
+          color: "white"
         }
       }
       return styles

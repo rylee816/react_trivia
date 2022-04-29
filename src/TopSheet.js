@@ -19,7 +19,8 @@ function TopSheet(props) {
   return (
     <div>
         <h1>Quizzical</h1>
-        <select onChange={(e) => props.setDifficulty(e.target.value)}>
+        {/* <label htmlFor="difficulty">Difficulty</label> */}
+        <select id="difficulty" onChange={(e) => props.setDifficulty(e.target.value)}>
             <option value="null">Difficulty</option>
             <option value="mixed">Mixed</option>
             <option value="easy">Easy</option>
