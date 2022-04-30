@@ -11,13 +11,15 @@ function Answer(props) {
           boxShadow: "0px 5px 10px grey",
           border: "1px solid transparent",
           color: "white",
+          transition: "all .3s linear"
         }
       }
       if(props.gameOver && props.chosen && !props.correct){
         styles = {
           background: "red",
           border: "1px solid transparent",
-          color: "white"
+          color: "white",
+          transition: "all .3s linear"
         }
       }
       if(props.gameOver && !props.chosen && props.correct){
@@ -25,7 +27,8 @@ function Answer(props) {
           background: "lime",
           boxShadow: "0px 5px 10px grey",
           border: "none",
-          color: "white"
+          color: "white",
+          transition: "all .3s linear"
         }
       }
       if(props.gameOver && props.chosen && props.correct){
@@ -33,7 +36,8 @@ function Answer(props) {
           background: "lime",
           boxShadow: "0px 5px 10px grey",
           border: "1px solid transparent",
-          color: "white"
+          color: "white",
+          transition: "all .3s linear"
         }
       }
       return styles

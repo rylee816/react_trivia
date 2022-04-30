@@ -2,7 +2,8 @@ import './App.css';
 import {useState, useEffect} from "react"
 import QuestionCard from './components/QuestionCard';
 import TopSheet from './TopSheet';
-import Confetti from 'react-confetti'
+import Confetti from 'react-confetti';
+import decodeHtml from './helpers';
 
 function App() {
 const [questions, setQuestions] = useState([])
@@ -30,36 +31,7 @@ function setRandom(array) {
   return array;
 }
 
-// Create function to decode the html (some edge cases missing)
-function decodeHtml(str){
-    var map =
-    {
-        '&amp;': '&',
-        '&lt;': '<',
-        '&gt;': '>',
-        '&quot;': '"',
-        '&#039;': "'",
-        '&eacute;': "é",
-        '&rsquo;': "'",
-        '&uuml;': 'ü',
-        '&pi;': '	π',
-        '&Prime;': '′',
-        '&iacute;': 'í',
-        '&sup2;': '²',
-        '&ouml;': 'ö',
-        '&deg;': '°',
-        '&shy;': '-',
-        '&aacute;': 'á',
-        '&Uuml': 'Ü',
-        '&micro;': 'µ',
-        '&ldquo;': '“',
-        '&rdquo;': "”",
-        '&oacute;': 'ó',
-        '&ecirc;': 'ê',
-        '&uacute;': 'ú'
-    };
-    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;|&eacute;|&rsquo;|&uuml;|&pi;|&Prime;|&iacute;|&sup2;|&ouml;|&deg;|&shy;|&aacute;|&Uuml;|&micro;|&ldquo;|&rdquo;|&oacute;|&ecirc;|&uacute;/g, (m) => map[m]);
-}
+
 console.log(options)
 
 
@@ -168,7 +140,7 @@ function setDifficultyColor(difficulty){
 
   return gameStarted ? (
     <div className="App">
-    {numCorrect === questions.length && <Confetti style={{margin: "auto"}} width={1000} height={1000}/>}
+    {numCorrect === questions.length && <Confetti style={{margin: "auto"}} width={1200} height={1000}/>}
     <h1>Good Luck and Have Fun!</h1>
     <h2> Difficulty: <span style={setDifficultyColor(options.difficulty)}><em>{options.difficulty}</em></span></h2>
     {questions.map((question, index) => {
