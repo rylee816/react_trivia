@@ -2,7 +2,7 @@ import React from 'react'
 
 function TopSheet(props) {
 
-    function toggleActive(e){
+    function toggleActive(){
     options.forEach(option => {
         if(option === this){
             option.setAttribute("disabled", true)
@@ -16,11 +16,17 @@ function TopSheet(props) {
         option.addEventListener("click", toggleActive)
     })
 
+    function handleChange(e){
+        const {name, value} = e.target;
+        
+        props.setDifficulty({[name]: value})
+    }
+
   return (
     <div>
         <h1>Quizzical</h1>
         {/* <label htmlFor="difficulty">Difficulty</label> */}
-        <select id="difficulty" onChange={(e) => props.setDifficulty(e.target.value)}>
+        <select name="difficulty" id="difficulty" onChange={handleChange}>
             <option value="null">Difficulty</option>
             <option value="mixed">Mixed</option>
             <option value="easy">Easy</option>

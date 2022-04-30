@@ -2,6 +2,7 @@ import './App.css';
 import {useState, useEffect} from "react"
 import QuestionCard from './components/QuestionCard';
 import TopSheet from './TopSheet';
+import Confetti from 'react-confetti'
 
 function App() {
 const [questions, setQuestions] = useState([])
@@ -42,15 +43,29 @@ function decodeHtml(str){
         '&rsquo;': "'",
         '&uuml;': 'ü',
         '&pi;': '	π',
-        '&Prime;': '′'
+        '&Prime;': '′',
+        '&iacute;': 'í',
+        '&sup2;': '²',
+        '&ouml;': 'ö',
+        '&deg;': '°',
+        '&shy;': '-',
+        '&aacute;': 'á',
+        '&Uuml': 'Ü',
+        '&micro;': 'µ',
+        '&ldquo;': '“',
+        '&rdquo;': "”",
+        '&oacute;': 'ó',
+        '&ecirc;': 'ê',
+        '&uacute;': 'ú'
     };
-    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;|&eacute;|&rsquo;|&uuml;|&pi;|&Prime;/g, (m) => map[m]);
+    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;|&eacute;|&rsquo;|&uuml;|&pi;|&Prime;|&iacute;|&sup2;|&ouml;|&deg;|&shy;|&aacute;|&Uuml;|&micro;|&ldquo;|&rdquo;|&oacute;|&ecirc;|&uacute;/g, (m) => map[m]);
 }
 console.log(options)
 
+
 async function getData(){
   //Make api call with "options" variable to set difficulty
-  let url = !options || options === "mixed" ? "https://opentdb.com/api.php?amount=5" : `https://opentdb.com/api.php?amount=5&difficulty=${options}`;
+  let url = !options || options.difficulty === "mixed" ? "https://opentdb.com/api.php?amount=5" : `https://opentdb.com/api.php?amount=5&difficulty=${options.difficulty}`;
   let res =  await fetch(url);
   let {results} = await res.json();
 
@@ -114,6 +129,7 @@ function checkAnswers(){
 
 
 function setDifficulty(value){
+  console.log(value)
   setOptions(prev => {
     if(prev === value){
       resetGame()
@@ -130,6 +146,7 @@ function toggleStartQuiz(){
 
 function resetGame(){
   setFinalAnswers(false)
+  setNumCorrect(0)
   getData()
 }
 
@@ -151,8 +168,9 @@ function setDifficultyColor(difficulty){
 
   return gameStarted ? (
     <div className="App">
+    {numCorrect === questions.length && <Confetti style={{margin: "auto"}} width={1000} height={1000}/>}
     <h1>Good Luck and Have Fun!</h1>
-    <h2> Difficulty: <span style={setDifficultyColor(options)}><em>{options}</em></span></h2>
+    <h2> Difficulty: <span style={setDifficultyColor(options.difficulty)}><em>{options.difficulty}</em></span></h2>
     {questions.map((question, index) => {
       return <QuestionCard
        key={index}
