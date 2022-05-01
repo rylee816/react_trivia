@@ -23,7 +23,7 @@ function TopSheet(props) {
     }
 
   return (
-    <div>
+    <div className='TopSheet'>
         <h1>Quizzical</h1>
         {/* <label htmlFor="difficulty">Difficulty</label> */}
         <select name="difficulty" id="difficulty" onChange={handleChange}>
