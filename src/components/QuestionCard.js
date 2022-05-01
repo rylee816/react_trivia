@@ -5,7 +5,7 @@ console.log(props)
 
   return (
     <div className='QuestionCard'>
-        <h2>{props.question}</h2>
+        <h3>{props.question}</h3>
         {props.answers.map((answer, index) => (
             <Answer 
             key={index}

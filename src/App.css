@@ -2,14 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-align: center;;
+  text-align: center;
 }
 
 .App {
   padding: 2rem;
 }
 
-.App h2 {
+.App h3 {
   color: rgba(0, 0, 0, 0.74);
   margin-top: 3rem;
 }
@@ -23,8 +23,26 @@
   color: white;
 }
 
+.buttonContainer button {
+  display: inline-block; 
+  padding: .5rem 1.2rem;
+  background-color: rgb(7, 139, 156);
+  border: 1px solid transparent;
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  transition: all .1s linear; 
+}
+
+.checkAnswers {
+  margin-left: auto;
+}
+
 .QuestionCard {
- 
+ border-bottom: 1px solid rgba(7, 139, 156, 0.295);
+ max-width: 900px;
+ margin: auto;
+ padding: 0 0 2rem;;
 }
 
 .Answer {
@@ -38,11 +56,34 @@
   font-weight: 600;
   color: rgb(16, 102, 114);
   letter-spacing: .8px;
+  transition: border .1s linear;
 }
 
 .Answer:active {
   border: 1px solid transparent;
   outline: none;
   box-shadow: 0px 5px 10px grey;
+}
+
+.Answer:hover{
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 5px navy;
+}
+
+.buttonContainer {
+  display: flex;
+  width: 900px;
+  margin: auto;
+  padding: 2rem 4rem;
+  align-items: center;
+  gap: 10px;
+}
+
+.buttonContainer h2 {
+  color: rgba(0, 0, 0, 0.74);
+}
+
+.buttonContainer button:hover {
+  background: navy;
 }
 
