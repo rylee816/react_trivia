@@ -27,7 +27,7 @@ function Answer(props) {
           background: "lime",
           boxShadow: "0px 5px 10px grey",
           border: "none",
-          color: "white",
+          color: "rgba(0, 0, 0, 0.64)",
           transition: "all .3s linear"
         }
       }
@@ -36,8 +36,8 @@ function Answer(props) {
           background: "lime",
           boxShadow: "0px 5px 10px grey",
           border: "1px solid transparent",
-          color: "white",
-          transition: "all .3s linear"
+          color: "rgba(0, 0, 0, 0.64)",
+          transition: "all .3s linear",
         }
       }
       return styles
