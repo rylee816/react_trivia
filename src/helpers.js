@@ -33,7 +33,8 @@ export default function decodeHtml(str){
         '&lsquo;': '‘',
         '&atilde;': 'ã',
         '&ntilde;': 'ñ',
-        '&ocirc;': 'ô'
+        '&ocirc;': 'ô',
+        '&hellip;': '…'
     };
-    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;|&eacute;|&rsquo;|&uuml;|&pi;|&Prime;|&iacute;|&sup2;|&ouml;|&deg;|&shy;|&aacute;|&Uuml;|&micro;|&ldquo;|&rdquo;|&oacute;|&ecirc;|&uacute;|&Delta;|&Eacute;|&ndash;|&lsquo;|&atilde;|&ntilde;|&ocirc;|&prime;/g, (m) => map[m]);
+    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;|&eacute;|&rsquo;|&uuml;|&pi;|&Prime;|&iacute;|&sup2;|&ouml;|&deg;|&shy;|&aacute;|&Uuml;|&micro;|&ldquo;|&rdquo;|&oacute;|&ecirc;|&uacute;|&Delta;|&Eacute;|&ndash;|&lsquo;|&atilde;|&ntilde;|&ocirc;|&prime;|&hellip;/g, (m) => map[m]);
 }
