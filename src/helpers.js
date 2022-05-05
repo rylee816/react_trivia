@@ -12,7 +12,7 @@ export default function decodeHtml(str){
         '&rsquo;': "'",
         '&uuml;': 'ü',
         '&pi;': '	π',
-        '&Prime;': '′',
+        '&Prime;': '″',
         '&prime;': '′',
         '&iacute;': 'í',
         '&sup2;': '²',
