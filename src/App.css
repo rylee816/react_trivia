@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.App {
+.App, .TopSheet {
   padding: 2rem;
   background: url('./images/quizbackground-03.png');
   background-position: center;
@@ -80,6 +80,7 @@
   margin: auto;
   padding: 2rem 4rem;
   align-items: center;
+  justify-content: space-around;
   gap: 10px;
 }
 
@@ -91,3 +92,67 @@
   background: navy;
 }
 
+.TopSheet {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.TopSheet h1 {
+  font-size: 4rem;
+  color: navy;
+}
+
+.TopSheet select{
+  padding: .5rem 1rem;
+  background: rgb(7, 139, 156);
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.TopSheet .start {
+  margin-top: 5rem;
+  padding: .8rem 3rem;
+  background: navy;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .buttonContainer, .QuestionCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .buttonContainer button, .buttonContainer h2 {
+    margin: auto;
+    width: 100%;
+  }
+
+  .Answer {
+    padding: .5rem;
+    width: 50%;
+  }
+
+  .Answer:first-of-type{
+    margin-top: 20px;
+  }
+ 
+}
+
+@media screen and (max-width: 700px) {
+  .Answer {
+    width: 80%;
+    padding: .5rem;
+  }
+}

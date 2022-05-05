@@ -30,7 +30,9 @@ export default function decodeHtml(str){
         '&Eacute;': 'É',
         '&ndash;': '–',
         '&lsquo;': '‘',
-        '&atilde;': 'ã'
+        '&atilde;': 'ã',
+        '&ntilde;': 'ñ',
+        '&ocirc;': 'ô'
     };
-    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;|&eacute;|&rsquo;|&uuml;|&pi;|&Prime;|&iacute;|&sup2;|&ouml;|&deg;|&shy;|&aacute;|&Uuml;|&micro;|&ldquo;|&rdquo;|&oacute;|&ecirc;|&uacute;|&Delta;|&Eacute;|&ndash;|&lsquo;|&atilde;/g, (m) => map[m]);
+    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;|&eacute;|&rsquo;|&uuml;|&pi;|&Prime;|&iacute;|&sup2;|&ouml;|&deg;|&shy;|&aacute;|&Uuml;|&micro;|&ldquo;|&rdquo;|&oacute;|&ecirc;|&uacute;|&Delta;|&Eacute;|&ndash;|&lsquo;|&atilde;|&ntilde;|&ocirc;/g, (m) => map[m]);
 }

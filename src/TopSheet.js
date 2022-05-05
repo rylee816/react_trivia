@@ -33,7 +33,7 @@ function TopSheet(props) {
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
         </select>
-        <button onClick={props.startQuiz}>Start Quiz</button>
+        <button className='start' onClick={props.startQuiz}>Start Quiz!</button>
     </div>
   )
 }
