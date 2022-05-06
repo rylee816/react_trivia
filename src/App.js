@@ -158,7 +158,7 @@ function setDifficultyColor(difficulty){
     <div className="buttonContainer">
     {finalAnswers ? <h2>You scored {numCorrect}/{questions.length} correct answers</h2> : ""}
     <button className='checkAnswers' onClick={finalAnswers ? resetGame : checkAnswers}>{finalAnswers ? "Play Again!" : "Check Answers!"}</button>
-    {finalAnswers && <button className='home-button' onClick={toggleStartQuiz}>Home/Choose Options</button>}
+    {finalAnswers && <button className='home-button' onClick={toggleStartQuiz}>Home/Options</button>}
     </div>
     </div>
   ) : <TopSheet setDifficulty={setDifficulty} startQuiz={toggleStartQuiz} />
