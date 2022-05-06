@@ -144,7 +144,7 @@ function setDifficultyColor(difficulty){
 
   return gameStarted ? (
     <div className="App">
-    {numCorrect === questions.length && <Confetti style={{margin: "auto"}} width={width} height={3000}/>}
+    {numCorrect === questions.length && <Confetti style={{margin: "auto"}} width={width} height={height}/>}
     <h2> Difficulty: <span style={setDifficultyColor(options.difficulty)}><em>{options.difficulty}</em></span></h2>
     {questions.map((question, index) => {
       return <QuestionCard
