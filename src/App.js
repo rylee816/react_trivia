@@ -4,6 +4,7 @@ import QuestionCard from './components/QuestionCard';
 import TopSheet from './TopSheet';
 import Confetti from 'react-confetti';
 import decodeHtml from './helpers';
+import useWindowDimensions from './hooks/getWindowDimensions';
 
 function App() {
 const [questions, setQuestions] = useState([])
@@ -11,6 +12,8 @@ const [finalAnswers, setFinalAnswers] = useState(false)
 const [numCorrect, setNumCorrect] = useState(0)
 const [gameStarted, setGameStarted] = useState(false)
 const [options, setOptions] = useState({difficulty: "mixed"})
+const {height, width} = useWindowDimensions()
+
 
 // Create a function to randomize the answers array
 function setRandom(array) {
@@ -141,7 +144,7 @@ function setDifficultyColor(difficulty){
 
   return gameStarted ? (
     <div className="App">
-    {numCorrect === questions.length && <Confetti style={{margin: "auto"}} width={1200} height={1000}/>}
+    {numCorrect === questions.length && <Confetti style={{margin: "auto"}} width={width} height={3000}/>}
     <h2> Difficulty: <span style={setDifficultyColor(options.difficulty)}><em>{options.difficulty}</em></span></h2>
     {questions.map((question, index) => {
       return <QuestionCard
