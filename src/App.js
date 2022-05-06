@@ -120,6 +120,7 @@ function resetGame(){
   setFinalAnswers(false)
   setNumCorrect(0)
   getData()
+  window.scrollTo(0, 0);
 }
 
 function setDifficultyColor(difficulty){
