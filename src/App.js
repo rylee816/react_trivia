@@ -65,7 +65,7 @@ async function getData(){
 // Fetch initial data and synch it with the difficulty level the user chooses
 useEffect(() => {
   getData()
-}, [options])
+}, [options, gameStarted])
 
 
 function setChosen(questionIndex, answerIndex) {
